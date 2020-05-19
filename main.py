@@ -3,7 +3,6 @@ from functions import *
 inicio()
 vitorias = 0
 while vitorias < 3:
-    placar()
     win = False
     count = 0
 

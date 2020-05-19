@@ -9,7 +9,9 @@ def inicio():  # Imprime uma interface introdutória do game
     print('-' * 30)
 
 
-def placar():  # Mostra o placar dos jogadores
+def placar(usuario):  # Mostra o placar dos jogadores
+    # Irá analisar quem venceu e armazenar em algum lugar.
+    # Quando chegar no total de 3 vitórias, o placar irá zerar.
     pass
 
 
@@ -35,7 +37,8 @@ def verificar(tabela, user):  # Imprime a interface e verifica se alguém conseg
             tabela[2] == tabela[4] == tabela[6]:
         print(f'{user:>12} GANHOU!')
         print('-' * 30)
-        sleep(2)
+        sleep(1)
+        placar(user)
         return True
     else:
         return False
