@@ -1,7 +1,7 @@
 from time import sleep
 
 
-def inicio():
+def inicio():  # Imprime uma interface introdutória do game
     print('-' * 30)
     print(f'{" JOGO DA VELHA ":-^30}')
     print('-' * 30)
@@ -9,11 +9,11 @@ def inicio():
     print('-' * 30)
 
 
-def placar():
+def placar():  # Mostra o placar dos jogadores
     pass
 
 
-def interface(tabela):
+def interface(tabela):  # Imprime uma interface semelhante ao desenho original do game
     i = 0
     for j in range(0, 3):
         for c in range(0, 3):
@@ -23,7 +23,7 @@ def interface(tabela):
     print('-' * 30)
 
 
-def verificar(tabela, user):
+def verificar(tabela, user):  # Imprime a interface e verifica se alguém conseguiu vencer
     interface(tabela)
     if tabela[0] == tabela[1] == tabela[2] or \
             tabela[3] == tabela[4] == tabela[5] or \
@@ -41,7 +41,7 @@ def verificar(tabela, user):
         return False
 
 
-def leiaNum(txt):
+def leiaNum(txt):  # Recebe a entrada do usuário
     opcoes = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
     while True:
         num = str(input(txt)).strip()
