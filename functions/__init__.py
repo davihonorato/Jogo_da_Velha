@@ -1,3 +1,6 @@
+from time import sleep
+
+
 def inicio():
     print('-' * 30)
     print(f'{" JOGO DA VELHA ":-^30}')
@@ -31,6 +34,23 @@ def verificar(tabela, user):
             tabela[0] == tabela[4] == tabela[8] or \
             tabela[2] == tabela[4] == tabela[6]:
         print(f'{user:>12} GANHOU!')
+        print('-' * 30)
+        sleep(2)
         return True
     else:
         return False
+
+
+def leiaNum(txt):
+    opcoes = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
+    while True:
+        num = str(input(txt)).strip()
+        if num in opcoes:
+            try:
+                n = int(num)
+            except:
+                print('Ocorreu um erro.')
+            else:
+                return n
+        else:
+            print('Digite um número válido.')
