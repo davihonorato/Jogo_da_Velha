@@ -1,8 +1,7 @@
 from functions import *
 
 inicio()
-vitorias = 0
-while vitorias < 3:
+while True:
     win = False
     count = 0
 
@@ -25,5 +24,6 @@ while vitorias < 3:
                 print('-' * 30)
                 break
         count += 1
+        interface(tabela)
         win = verificar(tabela, user)
-    vitorias += 1
+    break

@@ -1,18 +1,9 @@
-from time import sleep
-
-
 def inicio():  # Imprime uma interface introdutória do game
     print('-' * 30)
     print(f'{" JOGO DA VELHA ":-^30}')
     print('-' * 30)
     print(f'{"JOGADOR 1: X  JOGADOR 2: O":^30}')
     print('-' * 30)
-
-
-def placar(usuario):  # Mostra o placar dos jogadores
-    # Irá analisar quem venceu e armazenar em algum lugar.
-    # Quando chegar no total de 3 vitórias, o placar irá zerar.
-    pass
 
 
 def interface(tabela):  # Imprime uma interface semelhante ao desenho original do game
@@ -25,8 +16,7 @@ def interface(tabela):  # Imprime uma interface semelhante ao desenho original d
     print('-' * 30)
 
 
-def verificar(tabela, user):  # Imprime a interface e verifica se alguém conseguiu vencer
-    interface(tabela)
+def verificar(tabela, user):  # Verifica se alguém conseguiu vencer; atualiza as vitorias
     if tabela[0] == tabela[1] == tabela[2] or \
             tabela[3] == tabela[4] == tabela[5] or \
             tabela[6] == tabela[7] == tabela[8] or \
@@ -37,11 +27,24 @@ def verificar(tabela, user):  # Imprime a interface e verifica se alguém conseg
             tabela[2] == tabela[4] == tabela[6]:
         print(f'{user:>12} GANHOU!')
         print('-' * 30)
-        sleep(1)
-        placar(user)
+        return True
+    elif velha(tabela):
+        print(f'{"DEU VELHA":^30}')
+        print('-' * 30)
         return True
     else:
         return False
+
+
+def velha(tabela):  # Saber se existem opções a serem marcadas e retonar se 'deu velha'(empate) ou não.
+    deu_velha = False
+    opcoes = 9
+    for c in tabela:
+        if c.isalpha():
+            opcoes -= 1
+    if opcoes == 0:
+        deu_velha = True
+    return deu_velha
 
 
 def leiaNum(txt):  # Recebe a entrada do usuário
